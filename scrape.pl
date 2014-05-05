@@ -39,7 +39,7 @@ sub main {
     my @candidates_withdrawn = _scrape_candidate_data( 'withdrawn' );
     my @oids                 = _store_candidate_data( \@candidates_active,
         \@candidates_withdrawn );
-    say Dumper( @oids ); #TODO debug flag
+    #say Dumper( @oids ); #TODO debug flag
 }
 
 sub _scrape_candidate_data {
@@ -149,7 +149,7 @@ sub _extract_date {
 sub _store_candidate_data {      #TODO get rid of duplication here
     my $candidates_active    = shift;
     my $candidates_withdrawn = shift;
-    say Dumper( $candidates_active, $candidates_withdrawn ); #TODO debug flag
+    #say Dumper( $candidates_active, $candidates_withdrawn ); #TODO debug flag
 
     my $mango
         = Mango->new( 'mongodb://'

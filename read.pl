@@ -33,7 +33,7 @@ my $query          = $collection->find(
 my $query_results = $query->all;
 
 for my $doc ( @$query_results ) {
-    say Dumper( $doc );
+    #say Dumper( $doc );
     my $doc_copy = { %$doc };
     $doc_copy->{'processed'} = 1;
     $collection->update( $doc, $doc_copy );
