@@ -63,12 +63,13 @@ for my $doc ( @$query_results ) {
     my $status_update
         = $doc->{'name_first'} . ' '
         . $doc->{'name_last'}
-        . ' was nominated to run in ward '
+        . ' was nominated to run in #ward'
         . $doc->{'ward'} . ' on '
         . $date->month_abbr . ' '
         . $date->day
         . $suffix[ $date->day ] . ' '
-        . $date->year;
+        . $date->year . ' '
+        . 'Got tips? Send them our way. #TOpoli #TOcouncil';
     say $status_update;
     my $result = $nt->update( $status_update );
     $doc_copy->{'twitter_update'} = $result;
