@@ -73,8 +73,7 @@ sub _extract_active_candidate_data {
         my $name = $row->td->[0]->a->text;
         my $candidate_id
             = _extract_candidate_id( $row->td->[0]->{'onclick'} );
-        say "Scraping $candidate_id ..."; #TODO debug flag
-        my $oid = Mango::BSON::ObjectID->new( '1a2b3c4e5f60718293a4b5c6' );
+        #say "Scraping $candidate_id ..."; #TODO debug flag
         my %candidate = (
             candidate_id => $candidate_id,
             name_first   => _extract_name( 'first', $name ),
