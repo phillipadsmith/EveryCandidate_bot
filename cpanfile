@@ -7,6 +7,7 @@ requires 'Mojo::DOM', '0';
 requires 'Mojo::UserAgent', '0';
 requires 'Mango', '== 0.24';
 requires 'DateTime', '0';
+requires 'Net::OAuth', '0.25';
 requires 'Net::Twitter::Lite::WithAPIv1_1', '0';
 requires 'Scalar::Util', '0';
 
