@@ -56,7 +56,20 @@ my @suffix = (
 );
 
 for my $doc ( @$query_results ) {
-    my $epoch    = $doc->{'nomination_date'} / 1000;
+    my $event_date;
+    if ( $doc->{'nomination_date'} ) {
+        $event_date = $doc->{'nomination_date'};
+    } else {
+        $event_date = $doc->{'withdrawn_date'};
+    }
+    my $epoch    = $event_date / 1000;
+    my $type;
+    if ( $doc->{'nomination_date'} ) {
+        $type = 'entered';
+    } else {
+        $type = 'exited';
+    }
+    my $context_str = do { $type eq 'entered' ? 'was nominated to run in' : 'withdrew from the race in' }; 
     my $doc_copy = {%$doc};
     my $date     = DateTime->from_epoch(
         epoch     => $epoch,
@@ -66,8 +79,9 @@ for my $doc ( @$query_results ) {
     #TODO make templates for the various updates
     my $status_update
         = $doc->{'name_first'} . ' '
-        . $doc->{'name_last'}
-        . ' was nominated to run in #ward'
+        . $doc->{'name_last'} . ' '
+        . $context_str . ' '
+        . '#ward'
         . $doc->{'ward'} . ' on '
         . $date->month_abbr . ' '
         . $date->day
