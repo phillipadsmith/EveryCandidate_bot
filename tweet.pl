@@ -24,14 +24,6 @@ my $conf = $config->get;
 
 my $dt = DateTime->now( time_zone => 'America/New_York' );
 
-my $nt = Net::Twitter::Lite::WithAPIv1_1->new(
-    consumer_key        => $conf->{'tw_con_key'},
-    consumer_secret     => $conf->{'tw_con_secret'},
-    access_token        => $conf->{'tw_access_tok'},
-    access_token_secret => $conf->{'tw_access_key'},
-    ssl                 => 1,
-);
-
 my $mango
     = Mango->new( 'mongodb://'
         . $conf->{'mongo_user'} . ':'
@@ -44,6 +36,18 @@ my $collection = $mango->db->collection( 'alerts' );
 my $query = $collection->find( { twitter_update => { '$exists' => undef } } );
 
 my $query_results = $query->all;
+
+my $nt; 
+
+if ( $query_results )  { # Only if needed
+    $nt = Net::Twitter::Lite::WithAPIv1_1->new(
+        consumer_key        => $conf->{'tw_con_key'},
+        consumer_secret     => $conf->{'tw_con_secret'},
+        access_token        => $conf->{'tw_access_tok'},
+        access_token_secret => $conf->{'tw_access_key'},
+        ssl                 => 1,
+    );
+}
 
 my @suffix = (
     "-",  "st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th",
@@ -68,7 +72,7 @@ for my $doc ( @$query_results ) {
         . $date->month_abbr . ' '
         . $date->day
         . $suffix[ $date->day ] . ' '
-        . $date->year . ' '
+        . $date->year . '. '
         . 'Got tips? Send them our way. #TOpoli #TOcouncil';
     say $status_update;
     my $result = $nt->update( $status_update );
