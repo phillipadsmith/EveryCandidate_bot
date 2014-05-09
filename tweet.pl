@@ -13,6 +13,8 @@ use Mojo::DOM;
 use Mojo::UserAgent;
 use Mango;
 use Mango::BSON ':bson';
+use Mojo::Template;
+use Mojo::Loader;
 use Net::Twitter::Lite::WithAPIv1_1;
 use Scalar::Util 'blessed';
 
@@ -34,12 +36,11 @@ my $mango
 
 my $collection = $mango->db->collection( 'alerts' );
 my $query = $collection->find( { twitter_update => { '$exists' => undef } } );
-
 my $query_results = $query->all;
 
-my $nt; 
+my $nt;    # Variable for the Net::Twitter object
 
-if ( $query_results )  { # Only if needed
+if ( $query_results ) {    # Only if needed
     $nt = Net::Twitter::Lite::WithAPIv1_1->new(
         consumer_key        => $conf->{'tw_con_key'},
         consumer_secret     => $conf->{'tw_con_secret'},
@@ -59,37 +60,35 @@ for my $doc ( @$query_results ) {
     my $event_date;
     if ( $doc->{'nomination_date'} ) {
         $event_date = $doc->{'nomination_date'};
-    } else {
+    }
+    else {
         $event_date = $doc->{'withdrawn_date'};
     }
-    my $epoch    = $event_date / 1000;
-    my $type;
+    my $epoch = $event_date / 1000;
+    my $type; # Entered or exited
     if ( $doc->{'nomination_date'} ) {
         $type = 'entered';
-    } else {
+    }
+    else {
         $type = 'exited';
     }
-    my $context_str = do { $type eq 'entered' ? 'was nominated to run in' : 'withdrew from the race in' }; 
-    my $doc_copy = {%$doc};
+    my $doc_copy = { %$doc }; # Make a copy for the update
     my $date     = DateTime->from_epoch(
         epoch     => $epoch,
         time_zone => 'America/New_York'
     );
-
-    #TODO make templates for the various updates
-    my $status_update
-        = $doc->{'name_first'} . ' '
-        . $doc->{'name_last'} . ' '
-        . $context_str . ' '
-        . '#ward'
-        . $doc->{'ward'} . ' on '
-        . $date->month_abbr . ' '
-        . $date->day
-        . $suffix[ $date->day ] . ' '
-        . $date->year . '. '
-        . 'Got tips? Send them our way. #TOpoli #TOcouncil';
-    say $status_update;
+    my $status_update = Mojo::Template->new->render(
+        Mojo::Loader->new->data( __PACKAGE__, $type ), ( $doc, $date, \@suffix ) );
+    say $status_update; # TODO If debug
     my $result = $nt->update( $status_update );
     $doc_copy->{'twitter_update'} = $result;
     $collection->update( $doc, $doc_copy );
 }
+
+__DATA__
+@@ entered
+% my ($doc, $date, $suffix ) = @_;
+<%= $doc->{'name_first'} %> <%= $doc->{'name_last'} %> was nominated to run in #Ward<%= $doc->{'ward'} %> on <%= $date->month_abbr %> <%= $date->day %><%= $suffix->[ $date->day ] %>. Got tips? Send them our way. #TOpoli #TOcouncil
+
+@@ exited 
+<%= $doc->{'name_first'} %> <%= $doc->{'name_last'} %> withdrew from the race in #Ward<%= $doc->{'ward'} %> on <%= $date->month_abbr %> <%= $date->day %><%= $suffix->[ $date->day ] %>. Got tips? Send them our way. #TOpoli #TOcouncil
