@@ -90,5 +90,6 @@ __DATA__
 % my ($doc, $date, $suffix ) = @_;
 <%= $doc->{'name_first'} %> <%= $doc->{'name_last'} %> was nominated to run in #Ward<%= $doc->{'ward'} %> on <%= $date->month_abbr %> <%= $date->day %><%= $suffix->[ $date->day ] %>. Got tips? Send them our way. #TOpoli #TOcouncil
 
-@@ exited 
+@@ exited
+% my ($doc, $date, $suffix ) = @_;
 <%= $doc->{'name_first'} %> <%= $doc->{'name_last'} %> withdrew from the race in #Ward<%= $doc->{'ward'} %> on <%= $date->month_abbr %> <%= $date->day %><%= $suffix->[ $date->day ] %>. Got tips? Send them our way. #TOpoli #TOcouncil
