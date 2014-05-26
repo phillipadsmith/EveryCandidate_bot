@@ -84,7 +84,7 @@ sub _extract_active_candidate_data {
             email     => $row->td->[3]->a->text,
             phone     => $row->td->[4]->text,
             web       => $row->td->[5]->a->text,
-            processed => 1,
+            processed => '',
             added     => bson_time( time * 1000 ),
         );
         push @candidates, \%candidate;
@@ -125,7 +125,7 @@ sub _extract_withdrawn_candidate_data {
             ward       => $row->td->[1]->text,
             withdrawn_date =>
                 bson_time( _extract_date( $row->td->[2]->text ) * 1000 ),
-            processed => 1,
+            processed => '',
         );
         push @candidates, \%candidate;
     }
@@ -141,7 +141,7 @@ sub _extract_name {
 
 sub _extract_date {
     my $date_str = shift;
-    my $time     = str2time( $date_str );
+    my $time     = str2time( $date_str, 'EST' );
     return $time;
 }
 
@@ -161,7 +161,6 @@ sub _store_candidate_data {      #TODO get rid of duplication here
 
     for my $candidate_active ( @$candidates_active ) {
 
-        # Only checks that a record exists, not that it's identical #TODO fix on date
         my $record = $mango->db->collection( 'active' )->find_one(
             {   name_first => $candidate_active->{'name_first'},
                 name_last  => $candidate_active->{'name_last'},
@@ -187,7 +186,6 @@ sub _store_candidate_data {      #TODO get rid of duplication here
 
     for my $candidate_withdrawn ( @$candidates_withdrawn ) {
 
-        # Only checks that a record exists, not that it's identical #TODO fix on date
         my $record = $mango->db->collection( 'withdrawn' )->find_one(
             {   name_first => $candidate_withdrawn->{'name_first'},
                 name_last  => $candidate_withdrawn->{'name_last'},
