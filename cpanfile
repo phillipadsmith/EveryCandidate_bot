@@ -12,6 +12,7 @@ requires 'Net::Twitter::Lite::WithAPIv1_1', '0';
 requires 'Scalar::Util', '0';
 requires 'Mojo::Template', '0';
 requires 'Mojo::Loader', '0';
+requires 'Getopt::Long::Descriptive', '0.097';
 
 on 'configure' => sub {
 
