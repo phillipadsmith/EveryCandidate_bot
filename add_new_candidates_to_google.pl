@@ -36,11 +36,11 @@ sub main {
             . $conf->{'mongo_port'} . '/'
             . $conf->{'mongo_db'} );
 
+    my $collection = $mango->db->collection( 'active' );
     my $service = Net::Google::Spreadsheets->new(
         username => $conf->{'google_user'},
         password => $conf->{'google_pass'},
     );
-    my $collection = $mango->db->collection( 'active' );
 
     my $active     = get_active_candidates( $collection );
     my $mongo_ids  = get_candidate_ids_from_mongo( $active, $collection );
@@ -70,7 +70,7 @@ sub get_worksheet_from_google {
 
     # find a spreadsheet by title
     my $spreadsheet
-        = $service->spreadsheet( { title => $conf->{'google_sheet_title'} } );
+        = $service->spreadsheet( { key => $conf->{'google_sheet_key'} } );
 
     #find a worksheet by title
     my $worksheet = $spreadsheet->worksheet(
@@ -149,4 +149,8 @@ sub add_candidate_to_google {
             nominationdate => $dt->datetime() . 'Z',   #'2014-07-20T05:00:00Z'
         }
     );
+    if ( $new_row ) {
+        my $candidate_id = $new_row->param('candidateid');
+        say "Added candidate $candidate_id to Google Sheet";
+    }
 }
