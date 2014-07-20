@@ -241,6 +241,25 @@ DISTRIBUTIONS
       vars 0
       warnings 0
       warnings::register 0
+  DateTime-Format-Atom-v1.0.2
+    pathname: I/IK/IKEGAMI/DateTime-Format-Atom-v1.0.2.tar.gz
+    provides:
+      DateTime::Format::Atom undef
+    requirements:
+      DateTime 0
+      DateTime::Format::RFC3339 0
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      version 0
+  DateTime-Format-RFC3339-v1.0.5
+    pathname: I/IK/IKEGAMI/DateTime-Format-RFC3339-v1.0.5.tar.gz
+    provides:
+      DateTime::Format::RFC3339 undef
+    requirements:
+      DateTime 0
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      version 0
   DateTime-Locale-0.45
     pathname: D/DR/DROLSKY/DateTime-Locale-0.45.tar.gz
     provides:
@@ -1320,6 +1339,17 @@ DISTRIBUTIONS
       File::Spec 0
       Symbol 0
       Test::More 0.47
+  File-BOM-0.14
+    pathname: M/MA/MATTLAW/File-BOM-0.14.tar.gz
+    provides:
+      File::BOM 0.14
+    requirements:
+      Encode 1.99
+      Module::Build 0.20
+      Readonly 0.06
+      Test::Exception 0.20
+      Test::More 0.10
+      perl v5.8.3
   File-Listing-6.04
     pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
     provides:
@@ -1333,6 +1363,17 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       HTTP::Date 6
       perl 5.006002
+  File-Slurp-9999.19
+    pathname: U/UR/URI/File-Slurp-9999.19.tar.gz
+    provides:
+      File::Slurp 9999.19
+      FileSlurp_12 9999.13
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Fcntl 0
+      POSIX 0
   Getopt-Long-Descriptive-0.097
     pathname: R/RJ/RJBS/Getopt-Long-Descriptive-0.097.tar.gz
     provides:
@@ -1522,6 +1563,23 @@ DISTRIBUTIONS
       Mozilla::CA 20110101
       Net::HTTPS 6
       perl 5.008001
+  Lingua-EN-Inflect-1.895
+    pathname: D/DC/DCONWAY/Lingua-EN-Inflect-1.895.tar.gz
+    provides:
+      Lingua::EN::Inflect 1.895
+    requirements:
+      Test::More 0
+      version 0
+  Lingua-EN-Inflect-Number-1.11
+    pathname: N/NE/NEILB/Lingua-EN-Inflect-Number-1.11.tar.gz
+    provides:
+      Lingua::EN::Inflect::Number 1.11
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 6.30
+      Lingua::EN::Inflect 0
+      strict 0
+      warnings 0
   List-MoreUtils-0.33
     pathname: A/AD/ADAMK/List-MoreUtils-0.33.tar.gz
     provides:
@@ -1531,6 +1589,16 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.52
       Test::More 0.82
       perl 5.00503
+  MIME-Types-2.04
+    pathname: M/MA/MARKOV/MIME-Types-2.04.tar.gz
+    provides:
+      MIME::Type 2.04
+      MIME::Types 2.04
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Spec 0
+      Test::More 0.47
   MRO-Compat-0.12
     pathname: B/BO/BOBTFISH/MRO-Compat-0.12.tar.gz
     provides:
@@ -2265,6 +2333,107 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test 0
       perl 5.006
+  Net-Google-AuthSub-0.5
+    pathname: S/SI/SIMONW/Net-Google-AuthSub-0.5.tar.gz
+    provides:
+      Net::Google::AuthSub 0.5
+      Net::Google::AuthSub::Response undef
+    requirements:
+      LWP::UserAgent 0
+      Test::More 0.62
+      URI 0
+  Net-Google-DataAPI-0.2805
+    pathname: D/DA/DANJOU/Net-Google-DataAPI-0.2805.tar.gz
+    provides:
+      Net::Google::DataAPI 0.2805
+      Net::Google::DataAPI::Auth::AuthSub 0.03
+      Net::Google::DataAPI::Auth::ClientLogin::Multiple 0.05
+      Net::Google::DataAPI::Auth::Null 0.02
+      Net::Google::DataAPI::Auth::OAuth 0.05
+      Net::Google::DataAPI::Auth::OAuth2 0.05
+      Net::Google::DataAPI::Role::Auth 0.02
+      Net::Google::DataAPI::Role::Entry 0.02
+      Net::Google::DataAPI::Role::HasContent 0.03
+      Net::Google::DataAPI::Role::Service 0.05
+      Net::Google::DataAPI::Types 0.02
+    requirements:
+      Any::Moose 0.04
+      Carp 0
+      Digest::SHA1 0
+      ExtUtils::MakeMaker 6.59
+      LWP::Protocol::https 0
+      LWP::UserAgent 0
+      Lingua::EN::Inflect::Number 0
+      Mouse 0.51
+      Net::Google::AuthSub 0.5
+      Net::OAuth 0
+      Net::OAuth2 0.60
+      Test::Exception 0
+      Test::MockModule 0
+      Test::MockObject 0
+      Test::More 0.88
+      Test::Warn 0
+      Text::Glob 0
+      UNIVERSAL::can 0
+      UNIVERSAL::isa 0
+      URI 0
+      XML::Atom 0
+      XML::LibXML 0
+      perl 5.008001
+  Net-Google-DocumentsList-0.09
+    pathname: D/DA/DANJOU/Net-Google-DocumentsList-0.09.tar.gz
+    provides:
+      Net::Google::DocumentsList 0.09
+      Net::Google::DocumentsList::ACL undef
+      Net::Google::DocumentsList::Change undef
+      Net::Google::DocumentsList::Item undef
+      Net::Google::DocumentsList::Metadata undef
+      Net::Google::DocumentsList::Revision undef
+      Net::Google::DocumentsList::Role::EnsureListed undef
+      Net::Google::DocumentsList::Role::EntryWithoutEtag undef
+      Net::Google::DocumentsList::Role::Exportable undef
+      Net::Google::DocumentsList::Role::HasItems undef
+      Net::Google::DocumentsList::Types undef
+    requirements:
+      Any::Moose 0.04
+      DateTime::Format::Atom 0
+      ExtUtils::MakeMaker 6.59
+      File::BOM 0
+      File::Slurp 0
+      File::stat 0
+      MIME::Types 0
+      Mouse 0.51
+      Net::Google::DataAPI 0.2802
+      String::CamelCase 0.02
+      Test::More 0
+      URI 0
+      URI::Escape 0
+      XML::Atom 0
+      perl 5.008001
+  Net-Google-Spreadsheets-0.1501
+    pathname: D/DA/DANJOU/Net-Google-Spreadsheets-0.1501.tar.gz
+    provides:
+      Net::Google::Spreadsheets 0.1501
+      Net::Google::Spreadsheets::Cell undef
+      Net::Google::Spreadsheets::Record undef
+      Net::Google::Spreadsheets::Row undef
+      Net::Google::Spreadsheets::Spreadsheet undef
+      Net::Google::Spreadsheets::Table undef
+      Net::Google::Spreadsheets::Worksheet undef
+    requirements:
+      Any::Moose 0.04
+      Carp 0
+      ExtUtils::MakeMaker 6.59
+      Mouse 0.51
+      Net::Google::AuthSub 0
+      Net::Google::DataAPI 0.27
+      Test::Exception 0
+      Test::MockModule 0
+      Test::MockObject 0
+      Test::More 0.88
+      URI 0
+      XML::Atom 0
+      perl 5.008001
   Net-HTTP-6.06
     pathname: G/GA/GAAS/Net-HTTP-6.06.tar.gz
     provides:
@@ -2317,6 +2486,25 @@ DISTRIBUTIONS
       Test::More 0.66
       Test::Warn 0.21
       URI::Escape 3.28
+  Net-OAuth2-0.61
+    pathname: M/MA/MARKOV/Net-OAuth2-0.61.tar.gz
+    provides:
+      Net::OAuth2 0.61
+      Net::OAuth2::AccessToken 0.61
+      Net::OAuth2::Client 0.61
+      Net::OAuth2::Profile 0.61
+      Net::OAuth2::Profile::Password 0.61
+      Net::OAuth2::Profile::WebServer 0.61
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTTP::Request 0
+      HTTP::Status 0
+      JSON 0
+      LWP::UserAgent 0
+      Scalar::Util 0
+      Test::More 0
+      URI 0
+      YAML 0
   Net-SSLeay-1.58
     pathname: M/MI/MIKEM/Net-SSLeay-1.58.tar.gz
     provides:
@@ -2491,6 +2679,23 @@ DISTRIBUTIONS
       overload 0
       parent 0
       strict 0
+  Readonly-2.00
+    pathname: S/SA/SANKO/Readonly-2.00.tar.gz
+    provides:
+      Readonly 2.00
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.38
+      perl v5.6.0
+  String-CamelCase-0.02
+    pathname: H/HI/HIO/String-CamelCase-0.02.tar.gz
+    provides:
+      String::CamelCase 0.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   Sub-Exporter-0.987
     pathname: R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
     provides:
@@ -2702,6 +2907,34 @@ DISTRIBUTIONS
       Test::Harness 3.30
     requirements:
       ExtUtils::MakeMaker 0
+  Test-MockModule-0.05
+    pathname: S/SI/SIMONFLK/Test-MockModule-0.05.tar.gz
+    provides:
+      Test::MockModule 0.05
+    requirements:
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      Test::More 0.45
+  Test-MockObject-1.20140408
+    pathname: C/CH/CHROMATIC/Test-MockObject-1.20140408.tar.gz
+    provides:
+      Test::MockObject 1.20140408
+      Test::MockObject::Extends 1.20140408
+    requirements:
+      CGI 0
+      Carp 0
+      Devel::Peek 0
+      ExtUtils::MakeMaker 6.30
+      Scalar::Util 0
+      Test::Builder 0
+      Test::Exception 0.31
+      Test::More 0.98
+      Test::Warn 0.23
+      UNIVERSAL::can 1.20110617
+      UNIVERSAL::isa 1.20110614
+      constant 0
+      strict 0
+      warnings 0
   Test-Most-0.33
     pathname: O/OV/OVID/Test-Most-0.33.tar.gz
     provides:
@@ -2782,6 +3015,12 @@ DISTRIBUTIONS
       Algorithm::Diff 1.19
       Exporter 0
       ExtUtils::MakeMaker 0
+  Text-Glob-0.09
+    pathname: R/RC/RCLAMP/Text-Glob-0.09.tar.gz
+    provides:
+      Text::Glob 0.09
+    requirements:
+      Test::More 0
   Tie-ToObject-0.03
     pathname: N/NU/NUFFIN/Tie-ToObject-0.03.tar.gz
     provides:
@@ -2846,6 +3085,33 @@ DISTRIBUTIONS
       constant 0
       strict 0
       warnings 0
+  UNIVERSAL-can-1.20140328
+    pathname: C/CH/CHROMATIC/UNIVERSAL-can-1.20140328.tar.gz
+    provides:
+      Test::SmallWarn undef
+      UNIVERSAL::can 1.20140328
+    requirements:
+      ExtUtils::MakeMaker 6.30
+      Scalar::Util 0
+      strict 0
+      vars 0
+      warnings 0
+      warnings::register 0
+  UNIVERSAL-isa-1.20120726
+    pathname: C/CH/CHROMATIC/UNIVERSAL-isa-1.20120726.tar.gz
+    provides:
+      UNIVERSAL::isa 1.20120726
+    requirements:
+      CGI 0
+      ExtUtils::MakeMaker 6.30
+      Scalar::Util 0
+      Test::More 0
+      UNIVERSAL 0
+      overload 0
+      strict 0
+      vars 0
+      warnings 0
+      warnings::register 0
   URI-1.60
     pathname: G/GA/GAAS/URI-1.60.tar.gz
     provides:
@@ -2932,6 +3198,199 @@ DISTRIBUTIONS
       Fcntl 0
       URI 1.10
       perl 5.008001
+  XML-Atom-0.41
+    pathname: M/MI/MIYAGAWA/XML-Atom-0.41.tar.gz
+    provides:
+      LWP::UserAgent::AtomClient undef
+      XML::Atom 0.41
+      XML::Atom::Base undef
+      XML::Atom::Category undef
+      XML::Atom::Client undef
+      XML::Atom::Content undef
+      XML::Atom::Entry undef
+      XML::Atom::ErrorHandler undef
+      XML::Atom::Feed undef
+      XML::Atom::Link undef
+      XML::Atom::Namespace 0.41
+      XML::Atom::Person undef
+      XML::Atom::Server undef
+      XML::Atom::Thing undef
+      XML::Atom::Util undef
+    requirements:
+      Class::Data::Inheritable 0
+      DateTime 0
+      DateTime::TimeZone 0
+      Digest::SHA1 0
+      ExtUtils::MakeMaker 6.42
+      LWP::UserAgent 0
+      MIME::Base64 0
+      URI 0
+      XML::LibXML 1.69
+      XML::XPath 0
+      perl 5.008001
+  XML-LibXML-2.0116
+    pathname: S/SH/SHLOMIF/XML-LibXML-2.0116.tar.gz
+    provides:
+      XML::LibXML 2.0116
+      XML::LibXML::Attr 2.0116
+      XML::LibXML::AttributeHash 2.0116
+      XML::LibXML::Boolean 2.0116
+      XML::LibXML::CDATASection 2.0116
+      XML::LibXML::Comment 2.0116
+      XML::LibXML::Common 2.0116
+      XML::LibXML::Devel 2.0116
+      XML::LibXML::Document 2.0116
+      XML::LibXML::DocumentFragment 2.0116
+      XML::LibXML::Dtd 2.0116
+      XML::LibXML::Element 2.0116
+      XML::LibXML::ErrNo 2.0116
+      XML::LibXML::Error 2.0116
+      XML::LibXML::InputCallback 2.0116
+      XML::LibXML::Literal 2.0116
+      XML::LibXML::NamedNodeMap 2.0116
+      XML::LibXML::Namespace 2.0116
+      XML::LibXML::Node 2.0116
+      XML::LibXML::NodeList 2.0116
+      XML::LibXML::Number 2.0116
+      XML::LibXML::PI 2.0116
+      XML::LibXML::Pattern 2.0116
+      XML::LibXML::Reader 2.0116
+      XML::LibXML::RegExp 2.0116
+      XML::LibXML::RelaxNG 2.0116
+      XML::LibXML::SAX 2.0116
+      XML::LibXML::SAX::AttributeNode 2.0116
+      XML::LibXML::SAX::Builder 2.0116
+      XML::LibXML::SAX::Generator 2.0116
+      XML::LibXML::SAX::Parser 2.0116
+      XML::LibXML::Schema 2.0116
+      XML::LibXML::Text 2.0116
+      XML::LibXML::XPathContext 2.0116
+      XML::LibXML::XPathExpression 2.0116
+      XML::LibXML::_SAXParser 2.0116
+    requirements:
+      ExtUtils::MakeMaker 6.56
+      Test::More 0
+      XML::NamespaceSupport 1.07
+      XML::SAX 0.11
+      base 0
+      parent 0
+      perl 5.008
+      strict 0
+      vars 0
+      warnings 0
+  XML-NamespaceSupport-1.11
+    pathname: P/PE/PERIGRIN/XML-NamespaceSupport-1.11.tar.gz
+    provides:
+      XML::NamespaceSupport 1.11
+    requirements:
+      ExtUtils::MakeMaker 6.42
+      Test::More 0.47
+  XML-Parser-2.41
+    pathname: T/TO/TODDR/XML-Parser-2.41.tar.gz
+    provides:
+      XML::Parser 2.41
+      XML::Parser::Expat 2.41
+      XML::Parser::Style::Debug undef
+      XML::Parser::Style::Objects undef
+      XML::Parser::Style::Stream undef
+      XML::Parser::Style::Subs undef
+      XML::Parser::Style::Tree undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      LWP 0
+      perl 5.00405
+  XML-SAX-0.99
+    pathname: G/GR/GRANTM/XML-SAX-0.99.tar.gz
+    provides:
+      XML::SAX 0.99
+      XML::SAX::DocumentLocator undef
+      XML::SAX::ParserFactory 1.01
+      XML::SAX::PurePerl 0.99
+      XML::SAX::PurePerl::DebugHandler undef
+      XML::SAX::PurePerl::Exception undef
+      XML::SAX::PurePerl::Productions undef
+      XML::SAX::PurePerl::Reader undef
+      XML::SAX::PurePerl::Reader::Stream undef
+      XML::SAX::PurePerl::Reader::String undef
+      XML::SAX::PurePerl::Reader::URI undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Temp 0
+      XML::NamespaceSupport 0.03
+      XML::SAX::Base 1.05
+  XML-SAX-Base-1.08
+    pathname: G/GR/GRANTM/XML-SAX-Base-1.08.tar.gz
+    provides:
+      XML::SAX::Base 1.08
+      XML::SAX::Base::NoHandler 1.08
+      XML::SAX::Exception 1.08
+    requirements:
+      ExtUtils::MakeMaker 6.31
+      Test::More 0.88
+  XML-XPath-1.13
+    pathname: M/MS/MSERGEANT/XML-XPath-1.13.tar.gz
+    provides:
+      XML::XPath 1.13
+      XML::XPath::Boolean undef
+      XML::XPath::Builder undef
+      XML::XPath::Expr undef
+      XML::XPath::Function undef
+      XML::XPath::Literal undef
+      XML::XPath::LocationPath undef
+      XML::XPath::Node undef
+      XML::XPath::Node::Attribute undef
+      XML::XPath::Node::AttributeImpl undef
+      XML::XPath::Node::Comment undef
+      XML::XPath::Node::CommentImpl undef
+      XML::XPath::Node::Element undef
+      XML::XPath::Node::ElementImpl undef
+      XML::XPath::Node::Namespace undef
+      XML::XPath::Node::NamespaceImpl undef
+      XML::XPath::Node::PI undef
+      XML::XPath::Node::PIImpl undef
+      XML::XPath::Node::Text undef
+      XML::XPath::Node::TextImpl undef
+      XML::XPath::NodeImpl undef
+      XML::XPath::NodeSet undef
+      XML::XPath::Number undef
+      XML::XPath::Parser undef
+      XML::XPath::PerlSAX undef
+      XML::XPath::Root undef
+      XML::XPath::Step undef
+      XML::XPath::Variable undef
+      XML::XPath::XMLParser undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      XML::Parser 2.23
+  YAML-0.97
+    pathname: I/IN/INGY/YAML-0.97.tar.gz
+    provides:
+      Test::YAML undef
+      Test::YAML::Filter undef
+      YAML 0.97
+      YAML::Any undef
+      YAML::Dumper undef
+      YAML::Dumper::Base undef
+      YAML::Error undef
+      YAML::Loader undef
+      YAML::Loader::Base undef
+      YAML::Marshall undef
+      YAML::Mo undef
+      YAML::Node undef
+      YAML::Tag undef
+      YAML::Type::blessed undef
+      YAML::Type::code undef
+      YAML::Type::glob undef
+      YAML::Type::ref undef
+      YAML::Type::regexp undef
+      YAML::Type::undef undef
+      YAML::Types undef
+      YAML::Warning undef
+      yaml_mapping undef
+      yaml_scalar undef
+      yaml_sequence undef
+    requirements:
+      ExtUtils::MakeMaker 6.30
   autodie-2.25
     pathname: P/PJ/PJF/autodie-2.25.tar.gz
     provides:
