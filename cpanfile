@@ -17,7 +17,7 @@ requires 'Getopt::Long::Descriptive', '0.097';
 requires 'Net::Google::DataAPI', '0.2805';
 requires 'Net::Google::AuthSub', '0';
 requires 'Net::Google::DocumentsList', '0.09';
-requires 'Net::Google::Spreadsheets', '0';
+requires 'Net::Google::Spreadsheets', '0'; # Requires libxml2-dev
 requires 'List::Compare', '0';
 
 on 'configure' => sub {
@@ -35,4 +35,3 @@ on 'test' => sub {
 on 'develop' => sub {
 
 };
- 
