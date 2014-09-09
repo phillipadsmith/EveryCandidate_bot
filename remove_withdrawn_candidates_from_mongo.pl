@@ -42,6 +42,7 @@ for my $candidate ( @$collection_withdrawn ) {
     );
     if ( $to_be_removed ) {
         say "Removing: " . $to_be_removed->{'candidate_id'};
-        $collection_active->remove( $to_be_removed->{'_id'} );
+        my $result = $collection_active->remove({ _id => $to_be_removed->{'_id'} }, {single => 1} );
+        say "Removed!" if $result->{'n'} == 1;
     }
 }
