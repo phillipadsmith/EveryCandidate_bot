@@ -25,7 +25,7 @@ my $mango
         . $conf->{'mongo_port'} . '/'
         . $conf->{'mongo_db'} );
 
-my $dt_active = DateTime->today()->subtract( days => 1 );
+my $dt_active = DateTime->today()->subtract( hours => 1 );
 
 my $collection_active     = $mango->db->collection( 'active' ); #TODO only reading active. Need withdrawn.
 my $query_active          = $collection_active->find(
