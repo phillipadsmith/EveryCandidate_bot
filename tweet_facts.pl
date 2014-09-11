@@ -63,7 +63,7 @@ my $nom_close_date = DateTime->new(
     year      => 2014,
     month     => 9,
     day       => 12,
-    hour      => 9,
+    hour      => 14,
     minute    => 00,
     second    => 00,
 );
