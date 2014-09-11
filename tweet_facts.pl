@@ -74,8 +74,8 @@ my $mins  = $to_go->minutes();
 
 my $data = {
     active_candidates => scalar @$active_candidates,
-    days        => ( $days >= 2 ) ? "$days days" : "$days day",
-    hours       => ( $hours >= 2 ) ? "$hours hours" : "$hours hour",
+    days        => ($days == 0) ? "" : ( $days >= 2 ) ? "$days days, " : "$days day, ",
+    hours       => ($hours == 0 ) ? "" : ( $hours >= 2 ) ? "$hours hours and " : "$hours hour, and ",
     minutes     => ( $mins >= 2 ) ? "$mins minutes" : "$mins minute",
 };
 
@@ -94,4 +94,4 @@ if ( $nom_close_date > $dt ) {
 __DATA__
 @@ candidate_count
 % my ($data ) = @_;
-<%= $data->{'active_candidates'} %> candidates registered to run for city council. Just <%= $data->{'days'} %>, <%= $data->{'hours'} %>, and <%= $data->{'minutes'} %> to go until nominations close. #TOpoli #TOcouncil
+<%= $data->{'active_candidates'} %> candidates registered to run for city council. Just <%= $data->{'days'} %><%= $data->{'hours'} %><%= $data->{'minutes'} %> to go until nominations close. #TOpoli #TOcouncil
