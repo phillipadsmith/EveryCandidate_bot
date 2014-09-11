@@ -43,7 +43,7 @@ for my $doc ( @$query_results_active ) {
     say "Inserted $oid"; #TODO debug flag only
 }
 
-my $dt_withdrawn = DateTime->today()->subtract( days => 1 );
+my $dt_withdrawn = DateTime->today()->subtract( hours => 1 );
 
 my $collection_withdrawn     = $mango->db->collection( 'withdrawn' ); 
 my $query_withdrawn          = $collection_withdrawn->find(
